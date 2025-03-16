@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labirent Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="gameTitle">Labirent Oyunu</h1>
+    <p id="gameInstructions">Yusuf yine birşeyler deniyor çünkü Rüya'nın işi var :(</p>
+    
+    <div id="gameArea">
+        <div id="player"></div>
+        <div id="goal"></div>
+
+        <!-- Labirent Duvarları -->
+        <div class="wall" style="top: 50px; left: 50px; width: 500px; height: 10px;"></div>
+        <div class="wall" style="top: 150px; left: 50px; width: 10px; height: 200px;"></div>
+        <div class="wall" style="top: 350px; left: 100px; width: 400px; height: 10px;"></div>
+        <div class="wall" style="top: 450px; left: 200px; width: 10px; height: 100px;"></div>
+        <div class="wall" style="top: 550px; left: 50px; width: 500px; height: 10px;"></div>
+    </div>
+
+    <!-- Kazanma mesajı -->
+    <div id="winMessage">Bunu yaptığına göre beni çok seviyorsun 💖</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

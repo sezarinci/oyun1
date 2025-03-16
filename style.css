@@ -1,0 +1,107 @@
+body {
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    transition: background-color 1s ease-in-out;
+    overflow: hidden;
+}
+
+#gameTitle, #gameInstructions {
+    transition: opacity 0.5s ease-in-out;
+}
+
+#gameArea {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background-color: black;
+    margin: 20px auto;
+    border: 2px solid white;
+    transition: opacity 1s ease-in-out;
+    overflow: hidden; /* Beyaz top çerçevenin dışına çıkamaz */
+}
+
+#player {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    transition: transform 0.1s ease-in-out;
+}
+
+#goal {
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.wall {
+    position: absolute;
+    background-color: white;
+}
+
+/* Kazanma mesajı */
+#winMessage {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+/* Labirenti ve yazıları kaybetmek için */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Kalplerin sürekli fırlaması */
+.heart {
+    position: fixed;
+    font-size: 32px; /* Kalpler daha büyük */
+    color: red;
+    animation: heartAnimation 2s linear infinite;
+    opacity: 1;
+}
+
+@keyframes heartAnimation {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(-50px + 100px * random()), calc(-100px - 500px * random())) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 600px) {
+    #gameArea {
+        width: 90%;
+        height: 400px;
+    }
+    
+    #player {
+        width: 15px;
+        height: 15px;
+    }
+
+    #goal {
+        width: 15px;
+        height: 15px;
+    }
+}
