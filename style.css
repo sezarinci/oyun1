@@ -4,6 +4,11 @@ body {
     color: black;
     font-family: Arial, sans-serif;
     transition: background-color 1s ease-in-out;
+    overflow: hidden;
+}
+
+#gameTitle, #gameInstructions {
+    transition: opacity 0.5s ease-in-out;
 }
 
 #gameArea {
@@ -13,6 +18,8 @@ body {
     background-color: black;
     margin: 20px auto;
     border: 2px solid white;
+    transition: opacity 1s ease-in-out;
+    overflow: hidden; /* Beyaz top çerçevenin dışına çıkamaz */
 }
 
 #player {
@@ -23,6 +30,7 @@ body {
     top: 10px;
     left: 10px;
     border-radius: 50%;
+    transition: transform 0.1s ease-in-out;
 }
 
 #goal {
@@ -39,13 +47,7 @@ body {
     background-color: white;
 }
 
-/* Labirenti ve yazıları kaybetmek için */
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Kazanma mesajı başlangıçta görünmesin */
+/* Kazanma mesajı */
 #winMessage {
     display: none;
     position: fixed;
@@ -57,14 +59,22 @@ body {
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 10px;
+    z-index: 100;
 }
 
-/* Kalplerin fırlaması için */
+/* Labirenti ve yazıları kaybetmek için */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Kalplerin sürekli fırlaması */
 .heart {
     position: fixed;
-    font-size: 24px;
+    font-size: 32px; /* Kalpler daha büyük */
     color: red;
     animation: heartAnimation 2s linear infinite;
+    opacity: 1;
 }
 
 @keyframes heartAnimation {
@@ -73,7 +83,25 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translate(calc(-50px + 100px * random()), calc(-100px - 300px * random())) scale(0.5);
+        transform: translate(calc(-50px + 100px * random()), calc(-100px - 500px * random())) scale(0.5);
         opacity: 0;
+    }
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 600px) {
+    #gameArea {
+        width: 90%;
+        height: 400px;
+    }
+    
+    #player {
+        width: 15px;
+        height: 15px;
+    }
+
+    #goal {
+        width: 15px;
+        height: 15px;
     }
 }
